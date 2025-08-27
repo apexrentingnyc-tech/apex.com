@@ -15,17 +15,20 @@
         :root {
             --primary-green: #416e55;
             --accent-orange: #d77e5e;
-            --light-mint: #f1fbf6;
+            --light-mint: #1a1a1a;
             --white: #ffffff;
-            --text-dark: #2c2c2c;
-            --text-light: #666666;
+            --text-dark: #e0e0e0;
+            --text-light: #b0b0b0;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
         }
 
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: var(--white);
+            background-color: var(--dark-bg);
         }
 
         /* Header */
@@ -66,6 +69,10 @@
             letter-spacing: 0.5px;
         }
 
+        nav .logo {
+            margin-right: auto;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -95,21 +102,88 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-mint) 100%);
-            padding: 180px 0 80px;
+            position: relative;
+            padding: 120px 0 200px;
             text-align: center;
+            overflow: hidden;
+            min-height: 80vh;
+        }
+
+        .slideshow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide:nth-child(1) {
+            background-image: url('https://a0.muscache.com/im/pictures/miso/Hosting-1442210960987359548/original/61043918-fdce-411b-99fb-ac10b33863e4.png?im_w=1200');
+        }
+
+        .slide:nth-child(2) {
+            background-image: url('https://www.luxurylink.com/images/sho_5f777dd6/2579395_602-630/image-2579395_602.jpg');
+        }
+
+        .slide:nth-child(3) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYfSsFfmpNOfsw4qGFdoKwOdxlPZ_jnYEO9Q&s');
+        }
+
+        .slide:nth-child(4) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7Eh7ktw18J0_liZPLgfkXUtO0H95OJmCabA&s');
+        }
+
+        .slide:nth-child(5) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaqdAyWTTeLzCxB0zd1Ee4vkOUaOP0vFmCKw&s');
+        }
+
+        .slide:nth-child(6) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI86MsuF9s-AxBzgiPpkAV64YYODdsFAv33A&s');
+        }
+
+        .slide:nth-child(7) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR38QRy5RluwjrjjMGzfypRWoh-VpkaCEQVaA&s');
         }
 
         .hero-content {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0;
             padding: 0 2rem;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(65, 110, 85, 0.99) 0%, rgba(18, 18, 18, 0.2) 100%);
+            z-index: 0.6;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            color: var(--white);
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            color: #2d2d2d;
+            margin-bottom: 1.5rem;
             font-weight: 300;
         }
 
@@ -119,10 +193,11 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
-            color: var(--white);
-            margin-bottom: 2rem;
-            opacity: 0.95;
+            font-size: 1.4rem;
+            color: #b0b0b0;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.7;
         }
 
         .cta-button {
@@ -151,7 +226,7 @@
         }
 
         .section-alt {
-            background-color: var(--light-mint);
+            background-color: var(--card-bg);
         }
 
         .container {
@@ -187,12 +262,13 @@
         }
 
         .service-card {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
         }
 
         .service-card:hover {
@@ -244,9 +320,11 @@
         }
 
         .founder-info {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 10px;
+            border-left: 4px solid var(--accent-orange);
+            border: 1px solid var(--border-color);
             border-left: 4px solid var(--accent-orange);
         }
 
@@ -294,10 +372,11 @@
         }
 
         .contact-form {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
         }
 
         .form-group {
@@ -315,10 +394,12 @@
         .form-group textarea {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid var(--border-color);
             border-radius: 5px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
+            background-color: var(--dark-bg);
+            color: var(--text-dark);
         }
 
         .form-group input:focus,
@@ -374,11 +455,15 @@
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+            }
+
+            .hero-overlay {
+                width: 100%;
             }
 
             .section-header h2 {
@@ -407,7 +492,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="apexlogo.png" alt="Apex Renting Solutions Logo" style="height: 100px; width: auto;">
+                <img src="apexlogo.png" alt="Apex Renting Solutions Logo" style="height: 85px; width: auto;">
                 <div class="logo-text"><br><span style="font-size: 0.8rem; font-weight: normal;"></span></div>
             </div>
             <ul class="nav-links">
@@ -422,6 +507,16 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="slideshow-container">
+            <div class="slide active"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Your Property's <span class="highlight">Peak Performance</span> Partner</h1>
             <p>Dedicated property management solutions that maximize your investment while providing peace of mind through personalized, professional service.</p>
@@ -616,6 +711,28 @@
                 header.style.backgroundColor = 'var(--primary-green)';
             }
         });
+
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Start slideshow
+        setInterval(nextSlide, 4000); // Change slide every 4 seconds
     </script>
 </body>
 </html>
