@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Apex Renting Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 156 25% 25%; /* Dark green #416e55 */
+    --card: 0 0% 100%;
+    --card-foreground: 156 25% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 156 25% 25%;
+    --primary: 156 25% 35%; /* Main green #416e55 */
+    --primary-foreground: 120 44% 95%; /* Light green #f1fbf6 */
+    --secondary: 120 44% 95%; /* Light green #f1fbf6 */
+    --secondary-foreground: 156 25% 25%;
+    --muted: 120 44% 95%;
+    --muted-foreground: 156 15% 45%;
+    --accent: 15 55% 65%; /* Coral #d77e5e */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 156 15% 85%;
+    --input: 156 15% 90%;
+    --ring: 156 25% 35%;
+    --radius: 0.75rem;
+    --sidebar-background: 120 44% 95%;
+    --sidebar-foreground: 156 25% 25%;
+    --sidebar-primary: 156 25% 35%;
+    --sidebar-primary-foreground: 120 44% 95%;
+    --sidebar-accent: 15 55% 65%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 156 15% 85%;
+    --sidebar-ring: 156 25% 35%;
+  }
+
+  .dark {
+    --background: 156 25% 15%;
+    --foreground: 120 44% 95%;
+    --card: 156 20% 20%;
+    --card-foreground: 120 44% 95%;
+    --popover: 156 20% 20%;
+    --popover-foreground: 120 44% 95%;
+    --primary: 156 25% 35%;
+    --primary-foreground: 120 44% 95%;
+    --secondary: 156 15% 25%;
+    --secondary-foreground: 120 44% 95%;
+    --muted: 156 15% 25%;
+    --muted-foreground: 156 10% 65%;
+    --accent: 15 55% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 156 15% 30%;
+    --input: 156 15% 25%;
+    --ring: 156 25% 45%;
+    --sidebar-background: 156 20% 20%;
+    --sidebar-foreground: 120 44% 95%;
+    --sidebar-primary: 156 25% 35%;
+    --sidebar-primary-foreground: 120 44% 95%;
+    --sidebar-accent: 15 55% 65%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 156 15% 30%;
+    --sidebar-ring: 156 25% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)) 50%, hsl(var(--background)));
+  }
+}
